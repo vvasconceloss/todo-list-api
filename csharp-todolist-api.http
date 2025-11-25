@@ -1,0 +1,6 @@
+@csharp_todolist_api_HostAddress = http://localhost:5093
+
+GET {{csharp_todolist_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

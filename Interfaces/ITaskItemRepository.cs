@@ -7,6 +7,6 @@ namespace csharp_todolist_api.Interfaces
     public ICollection<TaskItem?> GetTasks();
     public TaskItem CreateTask(TaskItem task);
     public TaskItem UpdateTask(int id, TaskItem task);
-    public bool DeleteTask(int id);
+    public void DeleteTask(int id);
   }
 }

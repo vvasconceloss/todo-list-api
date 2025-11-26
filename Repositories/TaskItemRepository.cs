@@ -16,9 +16,12 @@ namespace csharp_todolist_api.Repositories
       return task;
     }
 
-    public bool DeleteTask(int id)
+    public void DeleteTask(int id)
     {
-      throw new NotImplementedException();
+      TaskItem taskItem = _context.Tasks.Where(task => task.Id == id).First();
+      
+      _context.Tasks.Remove(taskItem);
+      _context.SaveChanges();
     }
 
     public ICollection<TaskItem?> GetTasks()

@@ -10,7 +10,10 @@ namespace csharp_todolist_api.Repositories
 
     public TaskItem CreateTask(TaskItem task)
     {
-      throw new NotImplementedException();
+      _context.Add(task);
+      _context.SaveChanges();
+
+      return task;
     }
 
     public bool DeleteTask(int id)

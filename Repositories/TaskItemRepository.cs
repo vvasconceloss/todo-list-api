@@ -23,7 +23,7 @@ namespace csharp_todolist_api.Repositories
 
     public ICollection<TaskItem?> GetTasks()
     {
-      throw new NotImplementedException();
+      return [.. _context.Tasks];
     }
 
     public TaskItem UpdateTask(int id, TaskItem task)

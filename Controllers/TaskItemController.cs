@@ -32,5 +32,13 @@ namespace csharp_todolist_api.Controllers
     {
       return Ok(_taskItemRepository.GetTasks());
     }
+
+    [HttpDelete]
+    [Route("task/delete/{id}")]
+    public IActionResult Delete([FromRoute] int id)
+    {
+      _taskItemRepository.DeleteTask(id);
+      return Ok();
+    }
   }
 }

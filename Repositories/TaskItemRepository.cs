@@ -1,12 +1,12 @@
-using csharp_todolist_api.Interfaces;
 using csharp_todolist_api.Models;
-using Microsoft.EntityFrameworkCore;
+using csharp_todolist_api.Context;
+using csharp_todolist_api.Interfaces;
 
 namespace csharp_todolist_api.Repositories
 {
-  public class TaskItemRepository(DbContext context) : ITaskItemRepository
+  public class TaskItemRepository(TodoListContext context) : ITaskItemRepository
   {
-    private readonly DbContext _context = context;
+    private readonly TodoListContext _context = context;
 
     public TaskItem CreateTask(TaskItem task)
     {

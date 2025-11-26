@@ -1,6 +1,7 @@
 using csharp_todolist_api.Context;
 using Microsoft.EntityFrameworkCore;
 using csharp_todolist_api.Interfaces;
+using csharp_todolist_api.Middlewares;
 using csharp_todolist_api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseMiddleware<GlobalExceptionHandler>();
 app.UseHttpsRedirection();
 app.MapControllers();
 app.Run();

@@ -25,5 +25,12 @@ namespace csharp_todolist_api.Controllers
       
       return Ok();
     }
+
+    [HttpGet]
+    [Route("task/all")]
+    public IActionResult GetAll()
+    {
+      return Ok(_taskItemRepository.GetTasks());
+    }
   }
 }

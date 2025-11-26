@@ -11,8 +11,8 @@ using csharp_todolist_api.Context;
 namespace csharp_todolist_api.Migrations
 {
     [DbContext(typeof(TodoListContext))]
-    [Migration("20251126120726_init")]
-    partial class init
+    [Migration("20251126130006_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

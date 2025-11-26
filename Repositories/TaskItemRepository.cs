@@ -29,9 +29,15 @@ namespace csharp_todolist_api.Repositories
       return [.. _context.Tasks];
     }
 
-    public TaskItem UpdateTask(int id, TaskItem task)
+    public void UpdateTask(int id, TaskItem task)
     {
-      throw new NotImplementedException();
+      if (_context.Tasks.Find(id) is TaskItem found)
+      {
+        found.Title = task.Title;
+        found.UpdatedAt = task.UpdatedAt;
+
+        _context.SaveChanges();
+      }
     }
   }
 }

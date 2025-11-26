@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using csharp_todolist_api.DTOS;
 using csharp_todolist_api.Models;
 using csharp_todolist_api.Interfaces;
+using csharp_todolist_api.Exceptions;
 
 namespace csharp_todolist_api.Controllers
 {
@@ -21,22 +22,25 @@ namespace csharp_todolist_api.Controllers
         UpdatedAt = DateTime.UtcNow
       };
 
-      _taskItemRepository.CreateTask(taskItem);
+      var task = _taskItemRepository.CreateTask(taskItem);
       
-      return Ok();
+      return StatusCode(201, task);
     }
 
     [HttpGet]
     [Route("task/all")]
     public IActionResult GetAll()
     {
-      return Ok(_taskItemRepository.GetTasks());
+      return StatusCode(200, _taskItemRepository.GetTasks());
     }
 
     [HttpPut]
     [Route("task/update/{id}")]
     public IActionResult Update([FromRoute] int id, [FromBody] TaskItemDTO taskItemDTO)
     {
+      if (_taskItemRepository.GetTaskById(id) == null)
+        throw new NotFoundException($"The task with ID {id} was not found");
+        
       TaskItem taskItem = new()
       {
         Title = taskItemDTO.Title,
@@ -44,15 +48,18 @@ namespace csharp_todolist_api.Controllers
       };
 
       _taskItemRepository.UpdateTask(id, taskItem);
-      return Ok();
+      return StatusCode(204);
     }
 
     [HttpDelete]
     [Route("task/delete/{id}")]
     public IActionResult Delete([FromRoute] int id)
     {
+      if (_taskItemRepository.GetTaskById(id) == null)
+        throw new NotFoundException($"The task with ID {id} was not found");
+
       _taskItemRepository.DeleteTask(id);
-      return Ok();
+      return StatusCode(200);
     }
   }
 }

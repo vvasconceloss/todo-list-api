@@ -33,6 +33,20 @@ namespace csharp_todolist_api.Controllers
       return Ok(_taskItemRepository.GetTasks());
     }
 
+    [HttpPut]
+    [Route("task/update/{id}")]
+    public IActionResult Update([FromRoute] int id, [FromBody] TaskItemDTO taskItemDTO)
+    {
+      TaskItem taskItem = new()
+      {
+        Title = taskItemDTO.Title,
+        UpdatedAt = DateTime.UtcNow
+      };
+
+      _taskItemRepository.UpdateTask(id, taskItem);
+      return Ok();
+    }
+
     [HttpDelete]
     [Route("task/delete/{id}")]
     public IActionResult Delete([FromRoute] int id)

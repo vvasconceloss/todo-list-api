@@ -7,11 +7,13 @@ project.lock.json
 .env
 .vscode
 
+*.db
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
 
+[Dd]atabase/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

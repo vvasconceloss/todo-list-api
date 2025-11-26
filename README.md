@@ -1,6 +1,6 @@
 # Todo List API
 
-> A RESTful Todo List API built with .NET 9.
+> A RESTful Todo List API built with .NET 10.
 
 This project follows the Todo List API specification from roadmap.sh and serves as a backend-focused exercise to improve development skills while building a portfolio with clear, practical examples.
 
@@ -10,7 +10,7 @@ The API provides basic task management: creating, listing, updating, and deletin
 
 ## Technology Stack
 
-* C# (.NET 9)
+* C# (.NET 10)
 * Entity Framework Core
 * SQLite
 * Minimal API structure

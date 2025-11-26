@@ -29,6 +29,11 @@ namespace csharp_todolist_api.Repositories
       return [.. _context.Tasks];
     }
 
+    public TaskItem? GetTaskById(int id)
+    {
+      return _context.Tasks.Find(id);
+    }
+
     public void UpdateTask(int id, TaskItem task)
     {
       if (_context.Tasks.Find(id) is TaskItem found)

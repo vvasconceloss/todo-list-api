@@ -1,6 +1,6 @@
 namespace csharp_todolist_api.Models
 {
-  public class Task
+  public class TaskItem
   { 
     public int Id { get; set; }
     public required string Title { get; set; }

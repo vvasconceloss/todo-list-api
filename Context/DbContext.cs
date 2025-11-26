@@ -11,7 +11,7 @@ namespace csharp_todolist_api.Context
     {
       modelBuilder.Entity<TaskItem>(entity =>
       {
-        entity.ToTable("tasks");
+        entity.ToTable("Tasks");
         entity.HasKey(task => task.Id);
       });
     }
